@@ -29,8 +29,8 @@ qold=0; r=c;
 qtildeold=0; rtilde=ctilde; 
 
 Ptau = A0+A1*f(tau)+A3*g(tau)+A2*tau^2; 
-applyPtau = @(x,tol) bicg(Ptau,x,tol,n); 
-applyPtauT = @(x,tol) bicg(Ptau',x,tol,n); 
+applyPtau = @(x,tol) agmg(Ptau,x,[],tol,n,1); 
+applyPtauT = @(x,tol) agmg(Ptau',x,[],tol,n,1);
 
 eyen = speye(n); eyedn = speye(comp_size-n); 
 zeros1 = sparse(n,comp_size-n); zeros2 = sparse(comp_size-n,n); 
